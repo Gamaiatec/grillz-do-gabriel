@@ -1,17 +1,11 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Adicione esta linha
   build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'public/index.html')
-      }
-    }
-  },
-  server: {
-    host: true
+    outDir: 'dist',
+    assetsDir: 'assets'
   }
-});
+})
