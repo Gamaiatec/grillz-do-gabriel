@@ -114,7 +114,7 @@ export default function GrillzCustomizer() {
     
     const mensagem = `Olá Gabriel! Vi seu site e quero um Grillz personalizado:%0A%0A*Nome:* ${nomeCliente || "Não informado"}%0A*Tipo:* ${tipo.name}%0A*Material:* ${material.name}%0A*Acabamento:* ${acabamento.name}%0A%0A*Valor Total:* R$ ${total.toFixed(2)}%0A%0APode me enviar mais informações?`;
     
-    return `https://wa.me/SEUNUMEROAQUI?text=${encodeURIComponent(mensagem)}`;
+    return `https://wa.me/5585999299292?text=${encodeURIComponent(mensagem)}`;
   };
 
   return (
