@@ -5,22 +5,21 @@ const grillzOptions = {
   material: [
     { name: "Ouro", price: 1200 },
     { name: "Prata", price: 800 },
-    { name: "Ouro Branco", price: 1500 },
+    { name: "Ouro Branco", price: 1500 }
   ],
   cravejado: [
     { name: "Sim", price: 500 },
-    { name: "Não", price: 0 },
+    { name: "Não", price: 0 }
   ],
   formato: [
     { name: "Top 6", price: 0 },
     { name: "Top 8", price: 300 },
-    { name: "Completo", price: 800 },
-  ],
+    { name: "Completo", price: 800 }
+  ]
 };
 
 const Carousel = ({ title, options, selectedIndex, onChange }) => {
-  const prev = () =>
-    onChange((selectedIndex - 1 + options.length) % options.length);
+  const prev = () => onChange((selectedIndex - 1 + options.length) % options.length);
   const next = () => onChange((selectedIndex + 1) % options.length);
 
   return (
@@ -32,9 +31,7 @@ const Carousel = ({ title, options, selectedIndex, onChange }) => {
         </button>
         <div>
           <div className="text-xl font-bold">{options[selectedIndex].name}</div>
-          <div className="text-sm text-gray-500">
-            R$ {options[selectedIndex].price}
-          </div>
+          <div className="text-sm text-gray-500">R$ {options[selectedIndex].price}</div>
         </div>
         <button onClick={next} className="text-gray-600 p-2">
           <ChevronRight />
@@ -56,41 +53,19 @@ export default function GrillzCustomizer() {
 
   const total = material.price + cravejado.price + formato.price;
 
-  const mensagem = `Ol\u00e1, quero fazer um Grillz com as seguintes op\u00e7\u00f5es:%0a%0aNome: ${nomeCliente || "(não informado)"}%0aMaterial: ${material.name}%0aCravejado: ${cravejado.name}%0aFormato: ${formato.name}%0aPre\u00e7o Total: R$ ${total}`;
-  const linkWhatsapp = `https://wa.me/5585999299292?text=${mensagem}`;
+  const mensagem = `Olá, quero fazer um Grillz com:%0A%0ANome: ${nomeCliente || "(não informado)"}%0AMaterial: ${material.name}%0ACravejado: ${cravejado.name}%0AFormato: ${formato.name}%0APreço: R$ ${total}`;
+  const linkWhatsapp = `https://wa.me/SEUNUMERO?text=${mensagem}`;
 
   return (
     <div className="p-6 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold text-center mb-6">
-        Personalize seu Grillz
-      </h1>
-
-      <Carousel
-        title="Material"
-        options={grillzOptions.material}
-        selectedIndex={materialIndex}
-        onChange={setMaterialIndex}
-      />
-
-      <Carousel
-        title="Cravejado"
-        options={grillzOptions.cravejado}
-        selectedIndex={cravejadoIndex}
-        onChange={setCravejadoIndex}
-      />
-
-      <Carousel
-        title="Formato"
-        options={grillzOptions.formato}
-        selectedIndex={formatoIndex}
-        onChange={setFormatoIndex}
-      />
-
+      <h1 className="text-2xl font-bold text-center mb-6">Personalize seu Grillz</h1>
+      <Carousel title="Material" options={grillzOptions.material} selectedIndex={materialIndex} onChange={setMaterialIndex} />
+      <Carousel title="Cravejado" options={grillzOptions.cravejado} selectedIndex={cravejadoIndex} onChange={setCravejadoIndex} />
+      <Carousel title="Formato" options={grillzOptions.formato} selectedIndex={formatoIndex} onChange={setFormatoIndex} />
       <div className="border rounded-xl p-4 mt-4 text-center shadow bg-white">
         <h2 className="text-xl font-semibold">Preço Total</h2>
         <p className="text-2xl font-bold text-green-600">R$ {total}</p>
       </div>
-
       <div className="mt-6">
         <label className="block text-sm font-medium mb-1">Seu nome</label>
         <input
