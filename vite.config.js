@@ -10,5 +10,8 @@ export default defineConfig({
         main: path.resolve(__dirname, 'public/index.html')
       }
     }
+  },
+  server: {
+    host: true
   }
 });
